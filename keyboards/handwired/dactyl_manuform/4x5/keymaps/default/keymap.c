@@ -19,7 +19,9 @@ extern keymap_config_t keymap_config;
 #define KC_MU KC_MS_UP
 #define KC_MD KC_MS_DOWN
 #define KC_MB1 KC_MS_BTN1
-#define KC_MB2 KC_MS_BTN1
+#define KC_MB2 KC_MS_BTN2
+#define KC_MB3 KC_MS_BTN3
+#define KC_MB4 KC_MS_BTN4
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -52,9 +54,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Raise
  * ,----------------------------------,                             ,----------------------------------,
- * | HOME | mbn1 |  mup |mbn2  |whelup|                             | VOL+ |      | mute |      | PgUp |
+ * | mbn2 | mbn3 |  mup |mbn4  |whelup|                             | VOL+ |      | mute |      | PgUp |
  * |------+------+------+------+------|                             |-------------+------+------+------|
- * | END  | mleft| mdown|mright|wheldn|                             | left | down | up   |right | PgDn |
+ * | mbn1 | mleft| mdown|mright|wheldn|                             | left | down | up   |right | PgDn |
  * |------+------+------+------+------|                             |------|------+------+------+------|
  * |      |      |      |      |      |                             | VOL- |  /   |  \   |  ?   |  |   |
  * |------+------+------+-------------,                             ,-------------+------+------+------,
@@ -67,13 +69,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RAISE] = LAYOUT( \
-  KC_HOME, KC_MB1,  KC_MU, KC_MB2,  KC_MS_WH_UP,                  KC_VOLU, ____,    KC_MUTE, ____,     KC_PGUP,   \
-  KC_END,  KC_ML,   KC_MD, KC_MR,   KC_MS_WH_DOWN,                KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN, \
-  ____,    ____,    ____,  ____,    ____,                         KC_VOLD, KC_SLSH, KC_BSLS, KC_QUES,  KC_PIPE,   \
-           ____,    ____,                                                           ____,    RESET,               \
-                                    ____,                         ____,                                           \
-                                         ____, ____,  ____, ____,                                                 \
-                                         ____, ____,  ____, ____                                                  \
+  KC_MB2, KC_MB3,  KC_MU, KC_MB4,  KC_MS_WH_UP,                  KC_VOLU, ____,    KC_MUTE, ____,     KC_PGUP,   \
+  KC_MB1, KC_ML,   KC_MD, KC_MR,   KC_MS_WH_DOWN,                KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN, \
+  ____,    ____,    ____,  ____,   ____,                         KC_VOLD, KC_SLSH, KC_BSLS, KC_QUES,  KC_PIPE,   \
+           ____,    ____,                                                          ____,    RESET,               \
+                                   ____,                         ____,                                           \
+                                        ____, ____,  ____, ____,                                                 \
+                                        ____, ____,  ____, ____                                                  \
 ),
 /* Lower
  * ,----------------------------------,                             ,----------------------------------,
