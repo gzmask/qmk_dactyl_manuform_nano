@@ -9,7 +9,6 @@ extern keymap_config_t keymap_config;
 #define _LOWER 2
 
 // Fillers to make layering more clear
-
 #define ____ KC_TRNS
 
 #define SFT_SPC SFT_T(KC_SPC)
@@ -36,31 +35,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+-------------,                             ,-------------+------+------+------,
  *        |  '   |   -  |                                                         |   [  |   ]  |
  *        '------+------'-------------'------+------' '------+------'-------------'------+------'
- *                             |SPACE |CTLTAB|RASDEL| |RAPGUP|CTLBAC|SPACE |
+ *                             |SPACE |CTLTAB|RAS_~`| |RASDEL|CTLBAC|SPACE |
  *                             |   +  |------+------' '------+------|  +   |
- *                             |ESCAPE|GUIESC|LOWENT| |LOPGDN|ALTENT|ESCAPE|
+ *                             |ESCAPE|GUIESC|LOW_=+| |LOW_\||ALTENT|ESCAPE|
  *                             +------'------+------' '------+------'------+
  */
 
 [_BASE] = LAYOUT( \
-  KC_Q, KC_W, KC_E,    KC_R,    KC_T,                                                                                 KC_Y, KC_U, KC_I,    KC_O,   KC_P,    \
-  KC_A, KC_S, KC_D,    KC_F,    KC_G,                                                                                 KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, \
-  KC_Z, KC_X, KC_C,    KC_V,    KC_B,                                                                                 KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, \
-        KC_QUOT, KC_MINS,                                                                                                         KC_LBRC, KC_RBRC,         \
-                                SFT_SPC,                                                                              SFT_SPC,                              \
-                                         CTL_T(KC_TAB),  LT(_RAISE, KC_DEL),     LT(_RAISE, KC_PGUP),  CTL_T(KC_BSPC),                                      \
-                                         GUI_T(KC_ESC),  LT(_LOWER, KC_ENT),     LT(_LOWER, KC_PGDN), LALT_T(KC_ENT)
+  KC_Q, KC_W, KC_E, KC_R, KC_T,                                                    KC_Y, KC_U, KC_I,    KC_O,   KC_P,    \
+  KC_A, KC_S, KC_D, KC_F, KC_G,                                                    KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, \
+  KC_Z, KC_X, KC_C, KC_V, KC_B,                                                    KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, \
+        KC_QUOT, KC_MINS,                                                                               KC_LBRC, KC_RBRC,\
+                          SFT_SPC,                                                 SFT_SPC,                              \
+                          CTL_T(KC_TAB),  LT(_RAISE, KC_GRV),  LT(_RAISE, KC_DEL), CTL_T(KC_BSPC),                       \
+                          GUI_T(KC_ESC),  LT(_LOWER, KC_EQL),  LT(_LOWER, KC_BSLS), ALT_T(KC_ENT)
 ),
 
 /* Raise
  * ,----------------------------------,                             ,----------------------------------,
- * | mbn2 | mbn3 |  mup |mbn4  |whelup|                             | VOL+ |      | mute |      | PgUp |
+ * | mbn2 | mbn3 |  mup |mbn4  |whelup|                             |      | VOL+ | mute | VOL- | PgUp |
  * |------+------+------+------+------|                             |-------------+------+------+------|
  * | mbn1 | mleft| mdown|mright|wheldn|                             | left | down | up   |right | PgDn |
  * |------+------+------+------+------|                             |------|------+------+------+------|
- * |      |      |      |      |      |                             | VOL- |  /   |  \   |  ?   |  |   |
+ * |      |      |      |      |      |                             |      |  /   |  \   |  ?   |  |   |
  * |------+------+------+-------------,                             ,-------------+------+------+------,
- *        |      |      |                                                         |      |reset |
+ *        |reset |      |                                                         |      |reset |
  *        '------+------'-------------'------+------' '------+------'-------------'------+------'
  *                             |      |      |      | |      |      |      |
  *                             |      |------+------' '------+------|      |
@@ -69,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RAISE] = LAYOUT( \
-  KC_MB2, KC_MB3,  KC_MU, KC_MB4,  KC_MS_WH_UP,                  KC_VOLU, ____,    KC_MUTE, ____,     KC_PGUP,   \
-  KC_MB1, KC_ML,   KC_MD, KC_MR,   KC_MS_WH_DOWN,                KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN, \
-  ____,    ____,    ____,  ____,   ____,                         KC_VOLD, KC_SLSH, KC_BSLS, KC_QUES,  KC_PIPE,   \
-           ____,    ____,                                                          ____,    RESET,               \
-                                   ____,                         ____,                                           \
+  KC_MB2, KC_MB3,  KC_MU, KC_MB4, KC_MS_WH_UP,                  ____,    KC_VOLU, KC_MUTE, KC_VOLD,  KC_PGUP,    \
+  KC_MB1, KC_ML,   KC_MD, KC_MR,  KC_MS_WH_DOWN,                KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN,  \
+  ____,    ____,   ____,  ____,   ____,                         ____,    KC_SLSH, KC_BSLS, KC_QUES,  KC_PIPE,    \
+           RESET,   ____,                                                          ____,    RESET,               \
+                                   ____,                        ____,                                            \
                                         ____, ____,  ____, ____,                                                 \
                                         ____, ____,  ____, ____                                                  \
 ),
