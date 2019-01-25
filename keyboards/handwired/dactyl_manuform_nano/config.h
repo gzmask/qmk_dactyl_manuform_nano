@@ -56,9 +56,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PERMISSIVE_HOLD
 
 /* ws2812 RGB LED */
-#define RGB_DI_PIN D3
+//#define RGB_DI_PIN D3
 
-#define RGBLED_NUM 12    // Number of LEDs
+//#define RGBLED_NUM 12    // Number of LEDs
 
 
 /*
@@ -78,3 +78,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
+
+#define TAPPING_TERM 150
