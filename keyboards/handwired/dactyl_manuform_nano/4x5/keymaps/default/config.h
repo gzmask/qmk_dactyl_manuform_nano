@@ -34,4 +34,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #undef TAPPING_TOGGLE
-#define TAPPING_TOGGLE 3
+#define TAPPING_TOGGLE 2
