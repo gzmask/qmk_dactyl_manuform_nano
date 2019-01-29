@@ -19,3 +19,5 @@ TAP_DANCE_ENABLE = yes
 
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
+
+MIDI_ENABLE = yes            # MIDI support (+2400 to 4200, depending on config)

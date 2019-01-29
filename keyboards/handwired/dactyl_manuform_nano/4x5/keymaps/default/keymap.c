@@ -7,6 +7,7 @@ extern keymap_config_t keymap_config;
 #define _BASE 0
 #define _RAISE 1
 #define _LOWER 2
+#define _MIDI 3
 
 // Fillers to make layering more clear
 #define ____ KC_TRNS
@@ -58,14 +59,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_BASE] = LAYOUT( \
-  KC_Q, KC_W, KC_E, KC_R, KC_T,                                                    KC_Y, KC_U, KC_I,    KC_O,   KC_P,          \
-  TD(A_ESC), KC_S, KC_D, KC_F, KC_G,                                               KC_H, KC_J, KC_K,    KC_L,   TD(SCLN_ENT),  \
-  KC_Z, KC_X, KC_C, KC_V, KC_B,                                                    KC_N, KC_M, KC_COMM, KC_DOT, TD(SLSH_BSLS), \
-        ALT_T(KC_EQL), KC_MINS,                                                                KC_LBRC, KC_RBRC,               \
-                          SFT_SPC,                                                 SFT_SPC,                                    \
-                          CTL_T(KC_TAB),  OSL(_RAISE),          TT(_RAISE), CTL_T(KC_BSPC),             \
-                          GUI_T(KC_ESC), OSL(_LOWER),          LT(_LOWER, KC_QUOT), GUI_T(KC_ENT)
+  KC_Q, KC_W, KC_E, KC_R, KC_T,                                           KC_Y, KC_U, KC_I,    KC_O,   KC_P,          \
+  TD(A_ESC), KC_S, KC_D, KC_F, KC_G,                                      KC_H, KC_J, KC_K,    KC_L,   TD(SCLN_ENT),  \
+  KC_Z, KC_X, KC_C, KC_V, KC_B,                                           KC_N, KC_M, KC_COMM, KC_DOT, TD(SLSH_BSLS), \
+        ALT_T(KC_EQL), KC_MINS,                                                       KC_LBRC, KC_RBRC,               \
+                          SFT_SPC,                                        SFT_SPC,                                    \
+                          CTL_T(KC_TAB), OSL(_RAISE),         TT(_RAISE), CTL_T(KC_BSPC),             \
+                          GUI_T(KC_ESC), OSL(_LOWER),         LT(_LOWER, KC_QUOT), GUI_T(KC_ENT)
 ),
+
+#if defined(MIDI_ENABLE) && defined(MIDI_ADVANCED)
+[_MIDI] = LAYOUT( \
+  MI_CHU, MI_Cs,   MI_Ds,   ____,     MI_Fs,                   MI_Gs,    MI_As,     ____,       MI_Cs_1, MI_Ds_1, \
+  MI_C,   MI_D,    MI_E,    MI_F,     MI_G,                    MI_A,     MI_B,      MI_C_1,     MI_D_1,  MI_E_1,  \
+  MI_SUS, MI_OCTD, MI_OCTU, MI_MODSD, MI_MODSU,                MI_TRNSD, MI_TRNSU,  MI_TRNS_0,  ____,    MI_SUS,  \
+          MI_VEL_1, MI_VEL_4,                                                       MI_VEL_7, MI_VEL_10, \
+                                 TG(_MIDI),                    ____,                                    \
+                                      ____, ____,        ____, ____,                                    \
+                                      ____, ____,        ____, ____                                     \
+ ),
+#elif defined(MIDI_ENABLE) && defined(MIDI_BASIC)
+[_MIDI] = LAYOUT( \
+  ____, ____,  ____, ____, ____,                      ____,    KC_VOLU, KC_MUTE, KC_VOLD,  KC_PGUP,    \
+  MU_ON,  MU_OFF, MI_ON,  MI_OFF, ____,               KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN,  \
+  ____, ____, ____, ____, ____,                       ____,    ____,   ____,    ____,     ____,        \
+        ____, ____,                                            ____,   ____,                           \
+                              TG(_MIDI),              ____,                                            \
+                                   ____, ____,  ____, ____,                                                 \
+                                   ____, ____,  ____, ____                                                  \
+),
+#endif
 
 /* Raise
  * ,----------------------------------,                             ,----------------------------------,
@@ -88,10 +111,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_MB1, KC_ML, KC_MD, KC_MR, ____,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN,  \
   ____, ____, ____, ____, ____,                                 ____,    ____,    ____,    ____,     ____,       \
            RESET,   ____,                                                          ____,   RESET,                \
-                                   ____,                        ____,                                            \
+                              TG(_MIDI),                        ____,                                    \
                                         ____, ____,  ____, ____,                                                 \
                                         ____, ____,  ____, ____                                                  \
 ),
+
 /* Lower
  * ,----------------------------------,                             ,----------------------------------,
  * |  ! ` |  @   |  #   |  $   |  %   |                             |  ^   |  &   |  *   |  (   |  )   |
