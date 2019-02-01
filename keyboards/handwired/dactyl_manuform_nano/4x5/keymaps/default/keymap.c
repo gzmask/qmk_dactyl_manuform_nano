@@ -68,28 +68,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           GUI_T(KC_ESC), OSL(_LOWER),         LT(_LOWER, KC_QUOT), GUI_T(KC_ENT)
 ),
 
-#if defined(MIDI_ENABLE) && defined(MIDI_ADVANCED)
-[_MIDI] = LAYOUT( \
-  MI_CHU, MI_Cs,   MI_Ds,   ____,     MI_Fs,                   MI_Gs,    MI_As,     ____,       MI_Cs_1, MI_Ds_1, \
-  MI_C,   MI_D,    MI_E,    MI_F,     MI_G,                    MI_A,     MI_B,      MI_C_1,     MI_D_1,  MI_E_1,  \
-  MI_SUS, MI_OCTD, MI_OCTU, MI_MODSD, MI_MODSU,                MI_TRNSD, MI_TRNSU,  MI_TRNS_0,  ____,    MI_SUS,  \
-          MI_VEL_1, MI_VEL_4,                                                       MI_VEL_7, MI_VEL_10, \
-                                 TG(_MIDI),                    ____,                                    \
-                                      ____, ____,        ____, ____,                                    \
-                                      ____, ____,        ____, ____                                     \
- ),
-#elif defined(MIDI_ENABLE) && defined(MIDI_BASIC)
-[_MIDI] = LAYOUT( \
-  ____, ____,  ____, ____, ____,                      ____,    KC_VOLU, KC_MUTE, KC_VOLD,  KC_PGUP,    \
-  MU_ON,  MU_OFF, MI_ON,  MI_OFF, ____,               KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN,  \
-  ____, ____, ____, ____, ____,                       ____,    ____,   ____,    ____,     ____,        \
-        ____, ____,                                            ____,   ____,                           \
-                              TG(_MIDI),              ____,                                            \
-                                   ____, ____,  ____, ____,                                                 \
-                                   ____, ____,  ____, ____                                                  \
-),
-#endif
-
 /* Raise
  * ,----------------------------------,                             ,----------------------------------,
  * |mbn2  |wheldn|  mup |whelup|      |                             |      | VOL+ | mute | VOL- | PgUp |
@@ -140,7 +118,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     ____,                        ____,                                               \
                                          ____, ____,  ____, ____,                                                    \
                                          ____, ____,  ____, ____                                                     \
-)
+),
+
+
+#if defined(MIDI_ENABLE) && defined(MIDI_ADVANCED)
+[_MIDI] = LAYOUT( \
+  MI_Cs, MI_Ds, ____, MI_Fs, MI_Gs,                          MI_Cs_1, MI_Ds_1, ____,   MI_Fs_1, MI_Gs_1, \
+  MI_C,  MI_D,  MI_E, MI_F,  MI_G,                           MI_C_1,  MI_D_1,  MI_E_1, MI_F_1,  MI_G_1,  \
+  ____,  ____,  MI_A, MI_As,  MI_B,                           MI_A_1,  MI_As_1, MI_B_1, ____,  ____, \
+         ____, ____,                                                         ____, ____,         \
+                                 TG(_MIDI),                  ____,                                    \
+                                 ____, ____,           ____, ____,                                    \
+                                 MI_OCTD, ____,        ____, MI_OCTU                                  \
+),
+#else
+[_MIDI] = LAYOUT( \
+  ____, ____,  ____, ____, ____,                      ____,    KC_VOLU, KC_MUTE, KC_VOLD,  KC_PGUP,    \
+  MU_ON,  MU_OFF, MI_ON,  MI_OFF, ____,               KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN,  \
+  ____, ____, ____, ____, ____,                       ____,    ____,   ____,    ____,     ____,        \
+        ____, ____,                                            ____,   ____,                           \
+                              TG(_MIDI),              ____,                                            \
+                                   ____, ____,  ____, ____,                                                 \
+                                   ____, ____,  ____, ____                                                  \
+),
+#endif
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
