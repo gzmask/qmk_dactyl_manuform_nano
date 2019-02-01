@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------,                             ,----------------------------------,
  * |   q  |   w  |   e  |   r  |   t  |                             |   y  |   u  |   i  |   o  |  p   |
  * |------+------+------+------+------|                             |-------------+------+------+------|
- * | a ESC|   s  |   d  |   f  |   g  |                             |   h  |   j  |   k  |   l  | ; ENT|
+ * |   a  |   s  |   d  |   f  |   g  |                             |   h  |   j  |   k  |   l  |  ;   |
  * |------+------+------+------+------|                             |------|------+------+------+------|
  * |   z  |   x  |   c  |   v  |   b  |                             |   n  |   m  |   ,  |   .  | / \  |
  * |------+------+------+-------------,                             ,-------------+------+------+------,
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE] = LAYOUT( \
   KC_Q, KC_W, KC_E, KC_R, KC_T,                                           KC_Y, KC_U, KC_I,    KC_O,   KC_P,          \
-  TD(A_ESC), KC_S, KC_D, KC_F, KC_G,                                      KC_H, KC_J, KC_K,    KC_L,   TD(SCLN_ENT),  \
+  KC_A, KC_S, KC_D, KC_F, KC_G,                                           KC_H, KC_J, KC_K,    KC_L,   KC_SCLN,       \
   KC_Z, KC_X, KC_C, KC_V, KC_B,                                           KC_N, KC_M, KC_COMM, KC_DOT, TD(SLSH_BSLS), \
         ALT_T(KC_EQL), KC_MINS,                                                       KC_LBRC, KC_RBRC,               \
                           SFT_SPC,                                        SFT_SPC,                                    \
