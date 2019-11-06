@@ -1,1 +1,1 @@
-make handwired/dactyl_manuform_nano/4x5:default
+make handwired/dactyl_manuform_nano/4x5:default:avrdude 
